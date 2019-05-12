@@ -83,7 +83,6 @@ def post_facebook_message(fbid, recevied_message):
         joke_text = " here is the hod info goes "
     elif faculty:
         joke_text = "asking about faculty"
-
     else:
         joke_text = "try again"
 
@@ -290,7 +289,6 @@ def send_generic(recipient, type, data=True):
     elif type == "faculty":
         response = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
         result = response.json()
-
         page.send(recipient, Template.Generic([
             Template.GenericElement(result[0]['name'],
                                     subtitle=result[0]['designation'],
