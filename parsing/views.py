@@ -133,10 +133,13 @@ class JokesBotView(generic.View):
                         send_generic(message['sender']['id'])
                     else:
                         if 'text' in messagepoint:
-                            send_typing_on(message['sender']['id'])
-                            # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
-                            # are sent as attachments and must be handled0p'{{ accordingly.
-                            post_facebook_message(message['sender']['id'], message['message']['text'])
+                            if (message['message']['text'] == "restart"):
+                                send_quick_reply(message['sender']['id'])
+                            else:
+                                send_typing_on(message['sender']['id'])
+                                # Assuming the sender only sends text. Non-text messages like stickers, audio, pictures
+                                # are sent as attachments and must be handled0p'{{ accordingly.
+                                post_facebook_message(message['sender']['id'], message['message']['text'])
                         else:
                             send_message(message['sender']['id'], 'Hey there is problem')
 
