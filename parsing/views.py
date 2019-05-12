@@ -19,7 +19,7 @@ from fbmq import Attachment, Template, QuickReply, NotificationType
 from fbpage import page
 
 #  ------------------------ Fill this with your page access token! -------------------------------
-PAGE_ACCESS_TOKEN = "EAAELdUNZCPloBAMsH8Ep2EwoU45jMl4Ia1k3qQyz95dIOrjGZCHZB5z9JYPv3n5fMPOrZCj3HjpNi5hPSkRmFAKQ2FiomaSOVFpdoCcCgdMmRIsnlYjmIIAQaQ4V4M4lyIKqzHySdVCaoDqxw5qZA8cuUUU2J7iFsCkqORRBwShtsdXyRmZBYZC"
+PAGE_ACCESS_TOKEN = "EAAL1hTYXttYBAFEhF6HtorzfrIOlQJI7qcwA8PBZAvfXedVDhfoRj3y0K3VGhk0LCMsvUdIj4oIUq8Csmz6SC4qacW3PZAotdqxoSYv6ZAwYUsXoZAuwFOcN4aT2i5bRx1nz1FnJFsSofYpZCNcPStqU9UGRrntWEuVYqMdLgdf4rZBo9IwIyi"
 VERIFY_TOKEN = "1234567890"
 
 client = Wit('HLNPTWYGOJS7FV7PLUWS3PZY7ARIBTZF')
