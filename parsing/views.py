@@ -289,7 +289,7 @@ def send_generic(recipient, type, data=True):
     elif type == "faculty":
         response = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
         result = response.json()
-        if result[0]:
+        if result[0]['name']:
             page.send(recipient, Template.Generic([
                 Template.GenericElement(result[0]['name'],
                                         subtitle=result[0]['designation'],
