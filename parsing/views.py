@@ -289,18 +289,22 @@ def send_generic(recipient, type, data=True):
     elif type == "faculty":
         response = requests.get('https://uos.edu.pk/about/bot_faculty/'+data)
         result = response.json()
-        page.send(recipient, Template.Generic([
-            Template.GenericElement(result[0]['name'],
-                                    subtitle=result[0]['designation'],
-                                    item_url="https://uos.edu.pk/faculty/profile/"+result[0]['username'],
-                                    image_url="https://uos.edu.pk/uploads/faculty/profiles/"+result[0]['picture'],
-                                    buttons=[
-                                        Template.ButtonWeb("Open Profile",
-                                                           "https://uos.edu.pk/faculty/profile/"+result[0]['username']),
-                                        Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
-                                    ])
+        if result[0]:
+            page.send(recipient, Template.Generic([
+                Template.GenericElement(result[0]['name'],
+                                        subtitle=result[0]['designation'],
+                                        item_url="https://uos.edu.pk/faculty/profile/"+result[0]['username'],
+                                        image_url="https://uos.edu.pk/uploads/faculty/profiles/"+result[0]['picture'],
+                                        buttons=[
+                                            Template.ButtonWeb("Open Profile",
+                                                               "https://uos.edu.pk/faculty/profile/"+result[0]['username']),
+                                            Template.ButtonPhoneNumber("Contact", result[0]['mobile_no'])
+                                        ])
 
-        ]))
+            ]))
+        else:
+            send_message(recipient, 'No User found in our Database')
+            send_typing_off(recipient)
 
 
 def send_receipt(recipient):
